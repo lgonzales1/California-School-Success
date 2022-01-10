@@ -3,7 +3,7 @@ Analysis of data from school districts within California identifying variables r
 
 ## ML Model Overview
 
-District Data, click [here](https://docs.google.com/spreadsheets/d/1L-_kRhlbA8bhKE99NOrL8IEGfn16WN_a/edit#gid=1976575567) 
+District Data, click [here](https://docs.google.com/spreadsheets/d/1L-_kRhlbA8bhKE99NOrL8IEGfn16WN_a/edit#gid=1976575567).
 
 ### Model 1: Linear Regression
 
