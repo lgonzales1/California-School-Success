@@ -16,7 +16,7 @@ What is the association between per pupil spending and achievement, holding cons
 **Variables:**
 - Outcome/target: 
   - SBAC scores (for one subject)
-  - SBAC scores (for both subjects combined)
+  - SBAC scores (for both subjects, combined)
 - Predictors/features: 
   - Free/reduced lunch %
   - Per pupil spending
