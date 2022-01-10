@@ -1,5 +1,5 @@
 # California-School-Success
-Analysis of data from school districts within California identifying variables related to student success.
+Analysis of data from school districts within California, identifying variables related to student success.
 
 ## ML Model Overview
 
