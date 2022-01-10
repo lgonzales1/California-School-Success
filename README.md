@@ -8,7 +8,7 @@ District Data, click [here](https://docs.google.com/spreadsheets/d/1L-_kRhlbA8bh
 ### Model 1: Linear Regression
 
 **Overview:**
-Per pupil spending is one of the most commonly-used indicators to analyze correlations between K-12 education spending and student learning. We’d like to explore how per pupil spending in California might predict student achievement while holding constant district size and the percentage of students who qualify for free/reduced price lunch. In this model, we will be measuring achievment by the SBAC scores for one subject.
+Per pupil spending is one of the most commonly-used indicators to analyze correlations between K-12 education spending and student learning. We’d like to explore how per pupil spending in California might predict student achievement while holding constant district size and the percentage of students who qualify for free/reduced price lunch. 
 
 **Research Question:**
 What is the association between per pupil spending and achievement, holding constant district size and %FRL?
@@ -16,30 +16,14 @@ What is the association between per pupil spending and achievement, holding cons
 **Variables:**
 - Outcome/target: 
   - SBAC scores (for one subject)
+  - SBAC scores (for both subjects combined)
 - Predictors/features: 
   - Free/reduced lunch %
   - Per pupil spending
   - District size
   - Teacher pay (average)
 
-### Model 2: Linear Regression
-
-**Overview:**
-Per pupil spending is one of the most commonly-used indicators to analyze correlations between K-12 education spending and student learning. We’d like to explore how per pupil spending in California might predict student achievement while holding constant district size and the percentage of students who qualify for free/reduced price lunch. In this model, we will be measuring achievment by the SBAC scores for both subjects.
-
-**Research Question:**
-What is the association between per pupil spending and achievement, holding constant district size and %FRL?
-
-**Variables:**
-- Outcome/target: 
-  - SBAC scores (for both subjects)
-- Predictors/features: 
-  - Free/reduced lunch %
-  - Per pupil spending
-  - District size
-  - Teacher pay (average)
-
-### Model 3: Clustering Algorithm
+### Model 2: Clustering Algorithm
 
 **Overview:** 
 We’d also like to create a classification system that is more substantive than the standard way of categorizing districts based on spending and family income, which is to split them into quartiles or quintiles. 
