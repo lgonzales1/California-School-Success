@@ -14,12 +14,14 @@ Per pupil spending is one of the most commonly-used indicators to analyze correl
 What is the association between per pupil spending and achievement, holding constant district size and %FRL?
 
 **Variables:**
-- Outcome/target: SBAC scores (for one subject or both?)
+- Outcome/target: 
+  - SBAC scores (for one subject)
+  - SBAC scores (for both subjects)
 - Predictors/features: 
-- Free/reduced lunch %
-- Per pupil spending
-- District size
-- Teacher pay (average)
+  - Free/reduced lunch %
+  - Per pupil spending
+  - District size
+  - Teacher pay (average)
 
 ### Model 2: Clustering Algorithm
 
