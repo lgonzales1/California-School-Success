@@ -18,6 +18,8 @@ Though we originally planned to create a linear regression model, we determined 
 <b>Description of how data was split into training and testing sets</b>
 We used SKLearn script for testing, training, and splitting. This involved a standard scaler to reduce the variance in feature magnitude. We used an 80/20 train/test split proportion, which is standard and is a good fit for our dataset.
 
+In terms of model strength, we observed that the random forest classifier had slightly better results for predicting district results for both exams. For predicting district ELA scores, the random forest classifier held a narrow edge in terms of accuracy score (.78) over the logistic model (.77). And for Math scores, the random forest classifier topped the logistic model by about .2 of a score (.91 to .89).
+
 <b>Explanation of model choice</b>
 We elected to use supervised machine learning models because we have labeled outcome variables (English/Language Arts and Math test scores) that are foundational to evaluating district effectiveness. We also wanted to construct two models to determine which was more accurate based on our data. Thus, you will find a logistic and forest classifier algorithm in our code base.
 
