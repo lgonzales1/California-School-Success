@@ -1,6 +1,8 @@
 # California-School-Success
 Analysis of data from K12 school districts within California, identifying variables related to student success.
 
+**Google Slides Presentation**: https://docs.google.com/presentation/d/1F3YFfgeGMhiJDUFC4spqUofL4Du3HyZ9O8j708NnECc/edit#slide=id.ge9090756a_1_267
+
 #### Topic: Educational research
 
 Increasing the effectiveness of our public schools has long been a strong desire for tax payers, legislators, regulators, and community stakeholders. Effectively using collected tax revenue to increase our public school performance is a strong desire of all the citizenry. Public education reform has been the subject of ongoing legislation for decades and there's still work to do. As a group, we are deeply interested in what sorts of measurable data correlates with student success. If so, are any of those correlations predictive? Finally, what can we suggest in regards to re-structuring current districts or setting up successful ones in the future based on our findings.
