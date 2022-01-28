@@ -18,6 +18,10 @@ Public education reform has been the subject of ongoing legislation for decades.
 
 As a group, we are deeply interested in what sorts of measurable data correlates with student success. If so, are any of those correlations predictive? Finally, what can we suggest in regards to re-structuring current districts or setting up successful ones in the future based on our findings.
 
+## Database
+
+Database was designed with schema in QuickDBD, then created using PostgreSQL in pgAdmin. pgAdmin is connected to an Amazon RDS instance. For easy access, data is stored in Amazon S3 as .csv files.
+
 ## Dataset Description
 
 In our study, will be looking at the ~1027 school districts in California. We will be using two sources for our data.
@@ -25,10 +29,6 @@ In our study, will be looking at the ~1027 school districts in California. We wi
 * <https://www.cde.ca.gov/schooldirectory> a directory of all of the districts and schools in California with basic details about each.
   
 * <https://www.cde.ca.gov/ds/ad/ceffingertipfacts.asp> this is our primary dataset. It gives relatively clean, detailed information about each district. California school systems capture robust data allowing for our data to be extracted and loaded easily. From this database, we are primarily looking at data from 2019. Data from 2019 represents the California school system pre-SARS-COV-2 outbreak. We believe there are many challenges to analyzing data from during the SARS-COV-2 pandemic. Therefore, data from this time period does not suit the goals for our analysis.
-
-### Database
-
-Database was designed with schema in QuickDBD, then created using PostgreSQL in pgAdmin. pgAdmin is connected to an Amazon RDS instance. For easy access, data is stored in Amazon S3 as .csv files.
 
 **Research Questions:**
 
