@@ -48,9 +48,9 @@ In our study, will be looking at the ~1027 school districts in California. We wi
 
 * Extracted District Data from cde.ca.gov, click [here](https://docs.google.com/spreadsheets/d/1L-_kRhlbA8bhKE99NOrL8IEGfn16WN_a/edit#gid=1976575567).
 
-## Database
+## Database & Tools
 
-Database was designed with schema in QuickDBD, then created using PostgreSQL in pgAdmin. pgAdmin is connected to an Amazon RDS instance. For easy access, data is stored in Amazon S3 as .csv files. 
+Database was designed with schema in QuickDBD, then created using PostgreSQL in pgAdmin. pgAdmin is connected to an Amazon RDS instance. For easy access, data is stored in Amazon S3 as .csv files. Data was joined with SQLAlchemy in Jupyter Notebook with connection string. Additional dependencies used: Pandas, Numpy, SQLAlchemy, and SKLearn dependencies. 
 
 ## Initial Findings and Free and Reduced Lunch
 
@@ -64,7 +64,7 @@ The percentage of students in a given district receiving FRL is used as one indi
 
 "The Smarter Balanced Summative Assessments, which are delivered by computer, consist of two sections: a computer adaptive test and a performance task (PT) based on the Common Core State Standards (CCSS) for ELA and mathematics. The computer adaptive section includes a range of item types, such as selected response, constructed response, table, fill-in, graphing, and so forth. The PTs are extended activities that measure a student’s ability to integrate knowledge and skills across multiple standards—a key component of college and career readiness." (CAASPP Description- CalEdFacts)
 
-### Tableau Visualizations
+### Tableau Dashboard
 
 <https://public.tableau.com/app/profile/patrick.holmquist/viz/CaliforniaSuccessAnalysis/TeacherSalaryvsAchievement>
 
