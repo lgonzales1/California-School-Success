@@ -20,7 +20,7 @@ As a group, we are deeply interested in what sorts of measurable data correlates
 
 ## Database
 
-Database was designed with schema in QuickDBD, then created using PostgreSQL in pgAdmin. pgAdmin is connected to an Amazon RDS instance. For easy access, data is stored in Amazon S3 as .csv files.
+Database was designed with schema in QuickDBD, then created using PostgreSQL in pgAdmin. pgAdmin is connected to an Amazon RDS instance. For easy access, data is stored in Amazon S3 as .csv files. 
 
 ## Dataset Description
 
