@@ -68,17 +68,21 @@ That said, a significant limitation of probability models is, unlike linear mode
 *Logistic Regression Model confusion matrices*
 
 English/Language Arts
+
 ![Logistic ELA Model](https://github.com/lgonzales1/California-School-Success/blob/Tony/Images/Logistic_ELA_Confusion.png)
 
 Math
+
 ![Logistic Math Model](https://github.com/lgonzales1/California-School-Success/blob/Tony/Images/Logistic_Math_Confusion.png)
 
 *Random Forest Classifier confusion matrices*
 
 English/Language Arts
+
 ![RFC ELA Model](https://github.com/lgonzales1/California-School-Success/blob/Tony/Images/RFC_ELA_Confusion.png)
 
 Math
+
 ![RFC Math Model](https://github.com/lgonzales1/California-School-Success/blob/Tony/Images/RFC_Math_Confusion.png)
 
 *Accuracy Scores*
