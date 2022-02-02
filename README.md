@@ -53,6 +53,12 @@ As a group, we are deeply interested in what sorts of measurable data correlates
 
 [AWS S3 Database](http://districtdata.ckva5djfpzaj.us-east-1.rds.amazonaws.com/)
 
+## Model Choice
+
+We elected to use supervised machine learning models because we have labeled outcome variables (English/Language Arts and Math test scores) that are foundational to evaluating district effectiveness. We also wanted to construct two models to determine which was more accurate based on our data. Thus, you will find both a logistic regression and forest classifier algorithm in our code base.
+
+We established probability models since it is useful to be able to predict whether a district is more or less likely (based on a set of features) to have 50% or higher students at proficiency. This is a more straightforward measure of district effectiveness than a linear model, which would only produce individual scores in relation to one another.
+
 ## Feature Engineering and Selection
 
 The model features were chosen because they are commonly among the most valued by major stakeholders in the education sector, including:
@@ -65,7 +71,7 @@ We omitted features that themselves were also a sort of outcome measure of distr
 
 We also omitted features that may be collinear with percentage of students qualifying for free/reduced price lunch (such as disadvantaged percentage).
 
-Though we originally planned to create a linear regression model, we determined that a probability model would produce more substantive results for more audiences. Accordingly, we created binary variables for ELA and Math proficiency with a cut score of 50% proficiency. Districts with half or more of their students scoring proficient on a given exam were coded a "1", and districts with less than half were coded a "0." We chose 50% because it is a common cut score used by analysts when interpreting district performance data.
+Though we originally planned to create a linear regression model, as mentioned before, we determined that a probability model would produce more substantive results for more audiences. Accordingly, we created binary variables for ELA and Math proficiency with a cut score of 50% proficiency. Districts with half or more of their students scoring proficient on a given exam were coded a "1", and districts with less than half were coded a "0." We chose 50% because it is a common cut score used by analysts when interpreting district performance data.
 
 ## Training and Testing Sets
 
@@ -77,12 +83,6 @@ In terms of model strength, we observed that the random forest classifier had sl
 
 * For predicting district ELA scores, the random forest classifier held a narrow edge in terms of accuracy score (.78) over the logistic model (.77).
 * For Math scores, the random forest classifier topped the logistic model by about .2 of a score (.91 to .89).
-
-## Model Choice
-
-We elected to use supervised machine learning models because we have labeled outcome variables (English/Language Arts and Math test scores) that are foundational to evaluating district effectiveness. We also wanted to construct two models to determine which was more accurate based on our data. Thus, you will find both a logistic regression and forest classifier algorithm in our code base.
-
-As mentioned above, we established probability models since it is useful to be able to predict whether a district is more or less likely (based on a set of features) to have 50% or higher students at proficiency. This is a more straightforward measure of district effectiveness than a linear model, which would only produce individual scores in relation to one another.
 
 ## Limitations
 
