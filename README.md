@@ -43,10 +43,15 @@ As a group, we are deeply interested in what sorts of measurable data correlates
 
 <img src="./DistrictData.png" alt="District Data AWS Table" width="40%"/>
 
-* We began by joining two tables of school district data hosted on Amazon Web Services.
+* Database was designed with schema in QuickDBD, then created using PostgreSQL in pgAdmin. 
+* pgAdmin is connected to an Amazon RDS instance. 
+* For easy access, data is stored in Amazon S3 as .csv files. 
 * One table featured district demographics, while the other included English/Language Arts and Math test scores.
+* Data (two tables of school district data) was joined with SQLAlchemy in Jupyter Notebook with connection string.
   * The tables were joined based on district name
   * Once uploaded to a Jupyter Notebook, we converted NaNs to the mean for each column, and renamed columns to eliminate spaces and abbreviate.
+
+## Database & Tools
 
 ## Preliminary Feature Engineering and Selection
 
@@ -125,9 +130,6 @@ For the random forest models, there were differences in ranked importances for p
 
 Interestingly, average years of teaching experience was at or near the lowest importance rank in all four models. This conflicts somewhat with conventional wisdom in education, which holds that veteran teachers tend to be more effective.
 
-## Database & Tools
-
-Database was designed with schema in QuickDBD, then created using PostgreSQL in pgAdmin. pgAdmin is connected to an Amazon RDS instance. For easy access, data is stored in Amazon S3 as .csv files. Data was joined with SQLAlchemy in Jupyter Notebook with connection string. Additional dependencies used: Pandas, Numpy, SQLAlchemy, and SKLearn dependencies. 
 
 ## Communication Protocols
 
