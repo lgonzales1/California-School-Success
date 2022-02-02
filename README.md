@@ -1,6 +1,6 @@
 # California-School-Success
 
-### Quick Reference
+## Quick Reference
 
 * ELA- English Language Arts (Subject taught in school comprising of phonics, reading, reading comprehension, spelling, writing)
 * SBAC- Part of Smarter Balanced Summative Assessments, a standardized test based on Common Core State Standards
@@ -16,92 +16,88 @@ Increasing the effectiveness of our public schools has long been a strong desire
 
 Public education reform has been the subject of ongoing legislation for decades. In California, a push for a comprehensive system to hold schools and districts accountable for their students' performance began in earnest with the passing of the Public Schools Accountability Act (PSAA)  in 1999. Similarly, in 2001 federal law known as No Child Left Behind (NCLB). In fall 2004, the California Department of Education introduced a yearly “Academic Progress Report” (APR) which combines state and federal reporting requirements.
 
-As a group, we are deeply interested in what sorts of measurable data correlates with student success. If so, are any of those correlations predictive? Finally, what can we suggest in regards to re-structuring current districts or setting up successful ones in the future based on our findings.
+As a group, we are deeply interested in what sorts of measurable data correlates with student success. If so, are any of those correlations predictive? Finally, what can we suggest in regards to re-structuring current districts or setting up successful ones in the future based on our findings?
 
-## Dataset Description
-
-In our study, will be looking at the ~1027 school districts in California. We will be using two sources for our data.
-
-* <https://www.cde.ca.gov/schooldirectory> a directory of all of the districts and schools in California with basic details about each.
-  
-* <https://www.cde.ca.gov/ds/ad/ceffingertipfacts.asp> this is our primary dataset. It gives relatively clean, detailed information about each district. California school systems capture robust data allowing for our data to be extracted and loaded easily. From this database, we are primarily looking at data from 2019. Data from 2019 represents the California school system pre-SARS-COV-2 outbreak. We believe there are many challenges to analyzing data from during the SARS-COV-2 pandemic. Therefore, data from this time period does not suit the goals for our analysis.
-
-**Research Questions:**
+## Research Questions
 
 * What demographic, budgetary, and workforce-related variables are correlated with student success?
-* How is per pupil spending distributed across California school districts? By region? NorCal, SoCal, CV, etc.
+* How is per pupil spending distributed across California school districts?
 
-**Variables:**
+## Variables
 
-* Outcome/target:
+### Outcome/target
 
-  * Smarter Balanced Summative Assessments (SBAC) scores (one for ELA and one for Math)
-  * Smarter Balanced Summative Assessments (SBAC) scores (for both subjects, combined)
+* Smarter Balanced Summative Assessments (SBAC) scores (one for ELA and one for Math)
+* Smarter Balanced Summative Assessments (SBAC) scores (for both subjects, combined)
+  * The Smarter Balanced Summative Assessments, are delivered by computer
+  * Consist of two sections: a computer adaptive test and a performance task (PT) based on the Common Core State Standards (CCSS) for English Language Arts (ELA) and Mathematics. (CAASPP Description- CalEdFacts)
 
-* Predictors/features:
-  * Free/reduced lunch %
-  * Per pupil spending
-  * District size
-  * Teacher pay (average)
+### Predictors/features
 
-**Dataset**
+* Free/reduced lunch %
+* Per pupil spending
+* District size
+* Teacher pay (average)
 
-* Extracted District Data from cde.ca.gov, click [here](https://docs.google.com/spreadsheets/d/1L-_kRhlbA8bhKE99NOrL8IEGfn16WN_a/edit#gid=1976575567).
+## Preliminary data Preprocessing
+
+<img src="./DistrictData.png" alt="District Data AWS Table" width="40%"/>
+
+* We began by joining two tables of school district data hosted on Amazon Web Services.
+* One table featured district demographics, while the other included English/Language Arts and Math test scores.
+  * The tables were joined based on district name
+  * Once uploaded to a Jupyter Notebook, we converted NaNs to the mean for each column, and renamed columns to eliminate spaces and abbreviate.
+
+## Preliminary Feature Engineering and Selection
+
+The model features were chosen because they are commonly among the most valued by major stakeholders in the education sector, including:
+
+  1. Researchers
+  2. Policymakers
+  3. Journalists writing about education
+
+We omitted features that themselves were also a sort of outcome measure of district performance, such as suspension and chronic absenteeism percentage.
+
+We also omitted features that may be collinear with percentage of students qualifying for free/reduced price lunch (such as disadvantaged percentage).
+
+Though we originally planned to create a linear regression model, we determined that a probability model would produce more substantive results for more audiences. Accordingly, we created binary variables for ELA and Math proficiency with a cut score of 50% proficiency. Districts with half or more of their students scoring proficient on a given exam were coded a "1", and districts with less than half were coded a "0." We chose 50% because it is a common cut score used by analysts when interpreting district performance data.
+
+## Training and Testing Sets
+
+We used SKLearn script for testing, training, and splitting the data. This involved use of a standard scaler to reduce the variance in feature magnitude.
+
+* We used an 80/20 train/test split proportion, which is standard and appropriate for our dataset.
+
+In terms of model strength, we observed that the random forest classifier had slightly better results for predicting district results for both exams.
+
+* For predicting district ELA scores, the random forest classifier held a narrow edge in terms of accuracy score (.78) over the logistic model (.77).
+* For Math scores, the random forest classifier topped the logistic model by about .2 of a score (.91 to .89).
+
+## Model Choice
+
+We elected to use supervised machine learning models because we have labeled outcome variables (English/Language Arts and Math test scores) that are foundational to evaluating district effectiveness. We also wanted to construct two models to determine which was more accurate based on our data. Thus, you will find both a logistic regression and forest classifier algorithm in our code base.
+
+As mentioned above, we established probability models since it is useful to be able to predict whether a district is more or less likely (based on a set of features) to have 50% or higher students at proficiency. This is a more straightforward measure of district effectiveness than a linear model, which would only produce individual scores in relation to one another.
+
+## Limitations
+
+A significant limitation of probability models is, unlike linear models, we would not be able to assess which districts may be over or underperforming based on their demographics and teacher data. It may be interesting to researchers and policymakers to be able to compare predictions and actuals as a means for assessing performance. Our models - which are based on classifying binary results - would not be able to accomplish this.
+
+## Results
+
+>insert here
+
+## Tableau Visualizations
+
+<https://public.tableau.com/app/profile/patrick.holmquist/viz/CaliforniaSuccessAnalysis/TeacherSalaryvsAchievement>
+
+## Conclusions
+
+>insert here
 
 ## Database & Tools
 
 Database was designed with schema in QuickDBD, then created using PostgreSQL in pgAdmin. pgAdmin is connected to an Amazon RDS instance. For easy access, data is stored in Amazon S3 as .csv files. Data was joined with SQLAlchemy in Jupyter Notebook with connection string. Additional dependencies used: Pandas, Numpy, SQLAlchemy, and SKLearn dependencies. 
-
-## Initial Findings and Free and Reduced Lunch
-
-Since per pupil spending is one of the most commonly-used indicators to analyze correlations between K-12 education spending and student learning. We began by exploring how per pupil spending in California might predict student achievement while holding constant district size and the percentage of students who qualify for free/reduced price lunch.
-
-Although per pupil spending is an indicator of student success, a cursory look through visualizations of our data showed that other variables such as the percentage of students enrolled in "free and reduced lunch" (FRL), part of the National School Lunch Program (NSLP). The program NSLP was established under the National School Lunch Act, signed by President Harry Truman in 1946. More information on NSLP can be found [here](https://fns-prod.azureedge.net/sites/default/files/resource-files/NSLPFactSheet.pdf).
-
-The percentage of students in a given district receiving FRL is used as one indicator of the socio-economic status of that district.
-
-### Indicators of Success and SBAC Testing
-
-"The Smarter Balanced Summative Assessments, which are delivered by computer, consist of two sections: a computer adaptive test and a performance task (PT) based on the Common Core State Standards (CCSS) for ELA and mathematics. The computer adaptive section includes a range of item types, such as selected response, constructed response, table, fill-in, graphing, and so forth. The PTs are extended activities that measure a student’s ability to integrate knowledge and skills across multiple standards—a key component of college and career readiness." (CAASPP Description- CalEdFacts)
-
-### Tableau Dashboard
-
-<https://public.tableau.com/app/profile/patrick.holmquist/viz/CaliforniaSuccessAnalysis/TeacherSalaryvsAchievement>
-
-(cursory look through original dataset, created
-
-* average teaching salary summary
-* FRLP vs Achievement and FRLP heatmap
-* Disadvantage % vs Achievement and heatmap
-* Teacher to Student Ratio vs Achievement and heatmap
-
-### ML Model Updates
-
-<b>Description of preliminary data preprocessing</b>:
-We began by joining two tables of school district data hosted on Amazon Web Services. One table featured district demographics, while the other included English/Language Arts and Math test scores. The tables were joined based on district name. Once uploaded to a Jupyter Notebook, we converted NaaNs to the mean for each column, and renamed columns to eliminate spaces and abbreviate.
-
-<b>Description of preliminary feature engineering and preliminary feature selection</b>:
-The model features were chosen because they are commonly among the most valued by major stakeholders in the education sector, including:
-
-1. Researchers
-2. Policymakers
-3. Journalists writing about education
-
-We omitted features that themselves were also a sort of outcome measure of district performance, such as suspension and chronic absenteeism percentage. We also omitted features that may be collinear with percentage of students qualifying for free/reduced price lunch (such as disadvantaged percentage).
-
-Though we originally planned to create a linear regression model, we determined that a probability model would produce more substantive results for more audiences. Accordingly, we created binary variables for ELA and Math proficiency with a cut score of 50% proficiency. Districts with half or more of their students scoring proficient on a given exam were coded a "1", and districts with less than half were coded a "0." We chose 50% because it is a common cut score used by analysts when interpreting district performance data.
-
-<b>Description of how data was split into training and testing sets</b>
-We used SKLearn script for testing, training, and splitting the data. This involved use of a standard scaler to reduce the variance in feature magnitude. We used an 80/20 train/test split proportion, which is standard and appropriate for our dataset.
-
-In terms of model strength, we observed that the random forest classifier had slightly better results for predicting district results for both exams. For predicting district ELA scores, the random forest classifier held a narrow edge in terms of accuracy score (.78) over the logistic model (.77). And for Math scores, the random forest classifier topped the logistic model by about .2 of a score (.91 to .89).
-
-<b>Explanation of model choice</b>
-We elected to use supervised machine learning models because we have labeled outcome variables (English/Language Arts and Math test scores) that are foundational to evaluating district effectiveness. We also wanted to construct two models to determine which was more accurate based on our data. Thus, you will find both a logistic regression and forest classifier algorithm in our code base.
-
-As mentioned above, we established probability models because it is useful to be able to predict whether a district is more or less likely (based on a set of features) to have 50% or higher students at proficiency. This is a more straightforward measure of district effectiveness than individual scores in relation to one another, which is what a linear model would have produced.
-
-That said, a significant limitation of probability models is, unlike linear models, we would not be able to assess which districts may be over or underperforming based on their demographics and teacher data. It may be interesting to researchers and policymakers to be able to compare predictions and actuals as a means for assessing performance. Our models - which are based on classifying binary results - would not be able to accomplish this.
 
 ## Communication Protocols
 
