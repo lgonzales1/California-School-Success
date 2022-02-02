@@ -51,8 +51,6 @@ As a group, we are deeply interested in what sorts of measurable data correlates
   * The tables were joined based on district name
   * Once uploaded to a Jupyter Notebook, we converted NaNs to the mean for each column, and renamed columns to eliminate spaces and abbreviate.
 
-## Database & Tools
-
 ## Preliminary Feature Engineering and Selection
 
 The model features were chosen because they are commonly among the most valued by major stakeholders in the education sector, including:
