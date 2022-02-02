@@ -95,6 +95,10 @@ A significant limitation of probability models is, unlike linear models, we woul
 
 >insert here
 
+## Database & Tools
+
+Database was designed with schema in QuickDBD, then created using PostgreSQL in pgAdmin. pgAdmin is connected to an Amazon RDS instance. For easy access, data is stored in Amazon S3 as .csv files. Data was joined with SQLAlchemy in Jupyter Notebook with connection string. Additional dependencies used: Pandas, Numpy, SQLAlchemy, and SKLearn dependencies. 
+
 ## Communication Protocols
 
 * Primary communication on Slack group 9
