@@ -130,6 +130,7 @@ For the random forest models, there were differences in ranked importances for p
 
 Interestingly, average years of teaching experience was at or near the lowest importance rank in all four models. This conflicts somewhat with conventional wisdom in education, which holds that veteran teachers tend to be more effective.
 
+**Final thoughts:** If policymakers and education leaders would like a better idea of the variables that indicate success, this study would work well when comparing individual school achievement, rather than district achievement. Since analyzing school districts as a whole can generalize the data and not paint as clear of a picture for the variables that are most predictive of student outcomes, looking at the data at a school-by-school level may give more definitive results. Additionally, we can continue to add variables to our models to determine if they have any correlation.
 
 ## Communication Protocols
 
